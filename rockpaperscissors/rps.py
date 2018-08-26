@@ -1,7 +1,15 @@
+"""
+github/a-delay
+8/24/2018: https://fivethirtyeight.com/features/how-many-hoops-will-kids-jump-through-to-play-rock-paper-scissors/
+simulate the hoops game and find average time to completion
+"""
 import random
 
-def simulate_hoops(left, right, hoops):
+def simulate(hoops):
+    left = 0
+    right = hoops-1
     time = 0
+
     while left != hoops-1 or right != 0:
         #print("left: " + str(left))
         #print("right: " + str(right))
@@ -40,7 +48,7 @@ def simulate_rps():
         return time + 1, winner
 
 total_time = 0
-n = 1000000
+n = 10000
 for i in range(n):
-    total_time += simulate_hoops(0, 7, 8)
+    total_time += simulate(8)
 print(total_time/n)
